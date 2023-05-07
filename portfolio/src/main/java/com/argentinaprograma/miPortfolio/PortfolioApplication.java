@@ -1,4 +1,4 @@
-package com.miApp.portfolio;
+package com.argentinaprograma.miPortfolio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
