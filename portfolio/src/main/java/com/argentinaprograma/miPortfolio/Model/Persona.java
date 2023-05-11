@@ -15,28 +15,26 @@ public class Persona {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Long id;
-    private String nombre;
-    private String apellido;
+    private String nombreApellido;
     private int edad;
+    private String titulo;
     private String direccion;
     private String telefono;
     private String sobreMi;
     private String urlFotoPerfil;
-
+  
     public Persona() {
     }
 
-    public Persona(Long id, String nombre, String apellido, int edad, String direccion, String telefono, String sobreMi, String urlFotoPerfil) {
+    public Persona(Long id, String nombreApellido, int edad, String titulo, String direccion, String telefono, String sobreMi, String urlFotoPerfil) {
         this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
+        this.nombreApellido = nombreApellido;
         this.edad = edad;
+        this.titulo = titulo;
         this.direccion = direccion;
         this.telefono = telefono;
         this.sobreMi = sobreMi;
         this.urlFotoPerfil = urlFotoPerfil;
     }
-
- 
         
 }

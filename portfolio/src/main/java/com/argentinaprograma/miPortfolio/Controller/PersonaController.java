@@ -31,7 +31,7 @@ public class PersonaController {
         return "persona fue agregada con exito";
     }
     
-    @DeleteMapping ("/persona/eliminar")
+    @DeleteMapping ("/persona/eliminar/{id}")
     public String deletePersona (@PathVariable Long id){
         interPersona.deletePersonas(id);
         return "La persona fue eliminada con exito";
@@ -39,23 +39,25 @@ public class PersonaController {
     
     @PutMapping ("/persona/editar/{id}")
     public Persona editPersona (@PathVariable Long id,
-                                @RequestParam ("nombre") String nvoNombre,
-                                @RequestParam ("apellido") String nvoApellido,
+                                @RequestParam ("nombreApellido") String nvoNombreApellido,
                                 @RequestParam ("edad") int nvoEdad,
+                                @RequestParam ("titulo") String nvoTitulo,
                                 @RequestParam ("direccion") String nvoDireccion,
                                 @RequestParam ("telefono") String nvoTelefono,
                                 @RequestParam ("sobreMi") String nvoSobreMi,
-                                @RequestParam ("fotoPerfil") String nvoUrlFotoPerfil                                
+                                @RequestParam ("urlFotoPerfil") String nvoUrlFotoPerfil                                
                                 ){
             Persona perso = interPersona.findPersonas(id);
             
-            perso.setNombre(nvoNombre);
-            perso.setApellido(nvoApellido);
+            perso.setNombreApellido(nvoNombreApellido);
             perso.setEdad(nvoEdad);
+            perso.setTitulo(nvoTitulo);
             perso.setDireccion(nvoDireccion);
             perso.setTelefono(nvoTelefono);
             perso.setSobreMi(nvoSobreMi);
             perso.setUrlFotoPerfil(nvoUrlFotoPerfil);
+           
+            interPersona.savePersonas(perso);
             
             return perso;
               }

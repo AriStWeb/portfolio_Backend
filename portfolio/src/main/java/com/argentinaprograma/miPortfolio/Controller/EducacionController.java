@@ -31,13 +31,13 @@ public class EducacionController {
         return "La educacion fue agregada con exito";
     }
     
-    @DeleteMapping ("/educacion/eliminar")
+    @DeleteMapping ("/educacion/eliminar/{id}")
     public String deleteEducacion (@PathVariable Long id){
     interEducacion.deleteEducaciones(id);
         return "La educacion fue eliminada con exito";
     }
     
-    @PutMapping ("/educaicon/editar/{id}")
+    @PutMapping ("/educacion/editar/{id}")
     public Educacion editEducacion (@PathVariable Long id,
                                 @RequestParam ("nombre_educ") String nvoNombre_educ,
                                 @RequestParam ("descripcionEduc") String nvoDescripcionEduc,
@@ -54,6 +54,8 @@ public class EducacionController {
             educ.setAnioFinEduc(nvoAnioFinEduc);
             educ.setNombreOrgEduc(nvoNombreOrgEduc);
             educ.setImgEduc(nvoImgEduc);
+            
+            interEducacion.saveEducaciones(educ);
             
             return educ;
               }
