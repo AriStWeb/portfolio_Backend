@@ -4,6 +4,7 @@ package com.argentinaprograma.miPortfolio.Service;
 import com.argentinaprograma.miPortfolio.Model.Usuario;
 import com.argentinaprograma.miPortfolio.Repository.IUsuarioRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,6 @@ public class UsuarioService implements IUsuarioService{
                Usuario user= userRepository.findById(id).orElse(null);
         return  user;   
     }
-    
+
     
 }

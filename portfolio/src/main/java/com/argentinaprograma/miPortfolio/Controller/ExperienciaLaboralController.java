@@ -5,6 +5,7 @@ import com.argentinaprograma.miPortfolio.Model.ExperienciaLaboral;
 import com.argentinaprograma.miPortfolio.Service.IExperienciaLaboralService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @RestController
 public class ExperienciaLaboralController {
     
@@ -26,7 +28,7 @@ public class ExperienciaLaboralController {
     }
     
     
-    @PostMapping ("/experiencia/agregar")
+    @PostMapping ("/experienciaLaboral/agregar")
     public String createExpLaboral(@RequestBody ExperienciaLaboral expLab){
         interExpLab.saveExperienciaLaboral(expLab);
         return "La experiencia laboral fue agregada con exito";
@@ -38,13 +40,13 @@ public class ExperienciaLaboralController {
         return "La experiencia laboral fue eliminada con exito";
     }
     
-    @PutMapping ("/experienciaLaboral/editar/{id}")
+    @PutMapping ("/experiencia/editar/{id}")
     public ExperienciaLaboral editExpLaboral (@PathVariable Long id,
                                 @RequestParam ("nombreExpLab") String nvoNombreExpLabc,
                                 @RequestParam ("descripcionExpLab") String nvoDescripcionExpLab,
                                 @RequestParam ("anioInicioExpLab") int nvoAnioInicioExpLab,
                                 @RequestParam ("anioFinExpLab") int nvoAnioFinExpLab,
-                                @RequestParam ("nombrenombreLugarExpLab") String nvoNombreLugarExpLab,
+                                @RequestParam ("nombreLugarExpLab") String nvoNombreLugarExpLab,
                                 @RequestParam ("imgExpLab") String nvoImgExpLab
                                 ){
             ExperienciaLaboral expLab = interExpLab.findExperienciaLaboral(id);

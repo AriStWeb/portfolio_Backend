@@ -15,18 +15,19 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Long id;
-    private String correo;
-    private int contrasenia;
+    private String email;
+    private String password;
+    private String nombre;
     
     public Usuario() {
     }
 
-    public Usuario(Long id, String correo, int contrasenia) {
+    public Usuario(Long id, String email, String password, String nombre) {
         this.id = id;
-        this.correo = correo;
-        this.contrasenia = contrasenia;
+        this.email = email;
+        this.password = password;
+        this.nombre = nombre;
     }
-    
-    
+
     
 }
